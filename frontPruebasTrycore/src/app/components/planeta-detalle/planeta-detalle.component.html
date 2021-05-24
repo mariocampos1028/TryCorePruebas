@@ -1,0 +1,61 @@
+<h2>Detalle Planeta</h2>
+<hr>
+<div class="row justify-content-center pt-5 mt-3 m-1">
+    <div class="col-md-6 col-sm-8 col-xl-4 col-lg-5">
+        <form autocomplete="off">
+            <div class="form-group">
+                <label for="idpersona">ID</label>
+                <input type="text" class="form-control" name="idpersona" [ngModel]="planeta.planeta_id" disabled>
+            </div>
+            <div class="form-group">
+                <label for="nombre">Nombre</label>
+                <input type="text" class="form-control" name="nombre" [ngModel]="planeta.nombre" disabled>
+            </div>
+            <div class="form-group">
+                <label for="edad">Diametro</label>
+                <input type="text" class="form-control" name="edad" [ngModel]="planeta.diametro" disabled>
+            </div>
+            <div class="form-group">
+                <label for="contador">Visitas</label>
+                <input type="text" class="form-control" name="contador" [ngModel]="planeta.contador + 1" disabled>
+            </div>
+            <div class="form-group">
+                <label for="planeta">Cantidad Personas</label>
+                <input type="text" class="form-control" name="planeta" [ngModel]="planeta.cantidad_personas" disabled>
+                <button (click)="verDetallePlaneta(planeta.planeta_id,contenido)" class="btn btn-warning mt-3">Detalle</button>
+            </div>
+            <a href="#/planeta" class="btn btn-success mb-3 mt-5">Volver</a>
+        </form>
+    </div>
+    <ng-template #contenido let-modal>
+        <div class="modal-header">
+            <h4 class="modal-title">Detalle Cantidad personas</h4>
+            <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+              <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <table class="table table-dark table-hover">
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Altura</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let persona of listPersonas">
+                        <td scope="row">{{persona.nombre}}</td>
+                        <td>{{persona.altura}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-success" (click)="modal.close()">Cerrar</button>
+        </div>
+
+    </ng-template>
+
+
+
+</div>

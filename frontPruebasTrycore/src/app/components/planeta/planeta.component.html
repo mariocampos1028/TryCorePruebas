@@ -1,0 +1,59 @@
+<h1>Seccion Planeta</h1>
+<h2>
+    <a class="mb-3" (click)="openSM(contenido)">Clic para ver top 3 planetas con mas visitas</a>
+</h2>
+<hr>
+<div class="col-md-12">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Cantidad Personas</th>
+                <th>Visitas</th>
+                <th>Detalle</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let planeta of listPlanetas">
+                <td>{{planeta.nombre}}</td>
+                <td>{{planeta.cantidad_personas}}</td>
+                <td>{{planeta.contador}}</td>
+                <td>
+                    <button (click)="irDetallePlaneta(planeta,planeta.cantidad_personas)" class="btn btn-success">Ver</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="col-md-12">
+    <ng-template #contenido let-modal>
+        <div class="modal-header">
+            <h4 class="modal-title">TOP 3</h4>
+            <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+              <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <table class="table table-dark table-hover">
+                <thead>
+                    <tr>
+                        <th>TOP</th>
+                        <th>Nombre</th>
+                        <th>Visitas</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let planeta of listTop3Planetas; let i=index;">
+                        <td>{{i+1}}</td>
+                        <td scope="row">{{planeta.nombre}}</td>
+                        <td>{{planeta.contador}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-success" (click)="modal.close()">Cerrar</button>
+        </div>
+    </ng-template>
+
+</div>

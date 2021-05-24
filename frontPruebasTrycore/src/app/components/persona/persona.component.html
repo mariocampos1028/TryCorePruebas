@@ -1,0 +1,26 @@
+<h1>Seccion Personas</h1>
+<hr>
+<div class="col-md-12">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Visitas</th>
+                <th>Planeta</th>
+                <th>Detalle</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let persona of personas">
+                <td>{{persona.nombre}}</td>
+                <td>{{persona.contador}}</td>
+                <td>{{persona.planeta.nombre}}</td>
+                <td>
+                    <button (click)="irDetallePersona(persona,persona.planeta.nombre)" class="btn btn-success">Ver</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>´
+
+
+</div>
