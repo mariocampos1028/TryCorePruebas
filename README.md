@@ -1,5 +1,4 @@
 # TryCorePruebas
-# PruebasTryCore
 #patronDiseño 
 ------------
 para el desarrollo del back se uso un patron de diseño tipo facade, donde se implemento las fachadas para tratar todo el core de negocio y dejar aislado los componentes de controller, entitys, y dao
